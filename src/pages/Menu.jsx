@@ -1,16 +1,16 @@
-// File: src/pages/Menu.jsx
-
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './Menu.css';
 import { useCart } from '../context/CartContext';
 
+// This line makes the API URL dynamic
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+
 const Menu = () => {
   const { restaurantId } = useParams();
   const { cartItems, addItemToCart, removeItemFromCart } = useCart();
-  
   const [restaurant, setRestaurant] = useState(null);
-  const [menuItems, setMenuItems] = useState([]); // State for menu items
+  const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -18,10 +18,9 @@ const Menu = () => {
     const fetchDetailsAndMenu = async () => {
       try {
         setLoading(true);
-        // Fetch both restaurant details and menu items at the same time
         const [resDetails, resMenu] = await Promise.all([
-          fetch(`http://localhost:5001/api/restaurants/${restaurantId}`),
-          fetch(`http://localhost:5001/api/restaurants/${restaurantId}/menu`)
+          fetch(`${API_URL}/api/restaurants/${restaurantId}`),
+          fetch(`${API_URL}/api/restaurants/${restaurantId}/menu`)
         ]);
 
         if (!resDetails.ok || !resMenu.ok) {
@@ -33,7 +32,6 @@ const Menu = () => {
 
         setRestaurant(detailsData);
         setMenuItems(menuData);
-
       } catch (err) {
         setError(err.message);
       } finally {
@@ -43,9 +41,10 @@ const Menu = () => {
 
     fetchDetailsAndMenu();
   }, [restaurantId]);
+  
+  // ... (the rest of the component remains the same)
 
   const getQuantityById = (id) => {
-    // Note: MongoDB uses _id
     const item = cartItems.find(cartItem => cartItem._id === id);
     return item ? item.quantity : 0;
   };
@@ -68,12 +67,11 @@ const Menu = () => {
           </div>
         </div>
       </div>
-
       <div className="menu-container">
         <h2>Full Menu</h2>
         <div className="menu-items-list">
           {menuItems.map(item => {
-            const quantity = getQuantityById(item._id); // Use MongoDB's _id
+            const quantity = getQuantityById(item._id);
             return (
               <div className="menu-item-card" key={item._id}>
                 <div className="menu-item-info">

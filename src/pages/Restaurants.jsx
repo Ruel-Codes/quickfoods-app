@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState , useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import './Restaurants.css';
+
+// This line makes the API URL dynamic
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
 
 export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
@@ -15,8 +18,8 @@ export default function Restaurants() {
       try {
         setLoading(true);
         const apiUrl = cuisineFilter
-          ? `http://localhost:5001/api/restaurants?cuisine=${cuisineFilter}`
-          : 'http://localhost:5001/api/restaurants';
+          ? `${API_URL}/api/restaurants?cuisine=${cuisineFilter}`
+          : `${API_URL}/api/restaurants`;
         
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -41,9 +44,7 @@ export default function Restaurants() {
   return (
     <div className="restaurants-page">
       <h2>{cuisineFilter ? `${cuisineFilter} Restaurants` : 'All Restaurants'} in Patiala</h2>
-      
       {restaurants.length === 0 && !loading && <p>No restaurants found for this category.</p>}
-
       <div className="restaurant-list">
         {restaurants.map((restaurant) => (
           <Link to={`/restaurants/${restaurant._id}`} key={restaurant._id} className="restaurant-card">

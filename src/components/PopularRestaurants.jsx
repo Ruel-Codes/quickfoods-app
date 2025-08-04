@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // 1. Import necessary hooks and Link
+import { Link } from 'react-router-dom';
 
-export default function PopularRestaurants() {
-  // 2. Add state to hold the restaurant data
+// This line makes the API URL dynamic
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+
+const PopularRestaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
-
-  // 3. Fetch data from your API when the component loads
+  
   useEffect(() => {
     const fetchPopularRestaurants = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/restaurants');
+        const response = await fetch(`${API_URL}/api/restaurants`);
         const data = await response.json();
-        setRestaurants(data.slice(0, 4)); // Get just the first 4
+        setRestaurants(data.slice(0, 4));
       } catch (err) {
         console.error("Failed to fetch popular restaurants:", err);
       }
@@ -23,9 +24,7 @@ export default function PopularRestaurants() {
     <section className="popular-restaurants">
       <h2>Popular Restaurants</h2>
       <div className="restaurant-cards">
-        {/* 4. Map over the real data from the state */}
-        {restaurants.map((restaurant) => (
-          // 5. Wrap each card in a Link to its specific menu page
+        {restaurants.map(restaurant => (
           <Link to={`/restaurants/${restaurant._id}`} key={restaurant._id} className="restaurant-card">
             <img src={restaurant.image} alt={restaurant.name} />
             <h3>{restaurant.name}</h3>
@@ -34,4 +33,6 @@ export default function PopularRestaurants() {
       </div>
     </section>
   );
-}
+};
+
+export default PopularRestaurants;
