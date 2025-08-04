@@ -584,3 +584,44 @@ nav button:hover {
   font-weight: bold;
   margin-right: 15px;
 }
+
+
+
+
+@media (max-width: 960px) {
+    nav ul {
+        display: none; 
+    }
+
+    nav .navbuttons {
+        display: none; 
+    }
+
+    
+}
+
+
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column; 
+    }
+
+    .hero-left, .hero-right {
+        width: 100%; 
+        text-align: center;
+    }
+    
+    .hero-left h1 {
+        font-size: 2.5rem; 
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .stats {
+        justify-content: center; 
+        gap: 2rem;
+    }
+}
