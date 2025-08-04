@@ -1,0 +1,586 @@
+/* === Global & Reset Styles === */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* === Navbar Styles === */
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin: 1.5rem auto;
+    max-width: 1200px;
+    position: sticky;
+    top: 1rem; /* Adjusted for better sticky positioning */
+    z-index: 1000;
+}
+
+nav h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ed290a;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    align-items: center; /* Vertically align items */
+}
+
+nav ul li{
+    margin-left: 4rem;
+    padding: auto;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border-radius: 2rem;
+    font-size: larger;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s ease; /* Smoother transition */
+}
+
+nav ul li a:hover{
+    background-color: orange;
+    color: white; /* Added color change on hover */
+}
+
+.navbuttons{
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+nav button{
+    background-color: transparent;
+    border: 2px solid orange;
+    color: orange;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition : background-color 0.3s;
+}
+
+nav button:hover {
+    background-color: orange;
+    color: white;
+}
+
+/* === Navbar Cart Badge Styles === */
+.cart-link-container a {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #ed290a; /* Match your brand red */
+  color: white;
+  border-radius: 50%;
+  padding: 3px 7px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+
+/* === Hero Section Styles === */
+.hero{
+   height: auto;
+   padding: 4rem 2rem;
+   background-color: #fff;
+}
+
+.hero-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.hero-left{
+    width: 50%;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-left h1{
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ed290a;
+    margin-bottom: 1rem;
+}
+
+.hero-left p{
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.hero-buttons{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.yellow-btn {
+    background-color: #ffc107;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s ease;
+    text-decoration: none; 
+}
+
+.red-btn{
+    background-color: red;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.stats h2{
+    color: red;
+    font-size: 1.3rem;
+}
+
+.stats p{
+    font-size: 0.9rem;
+    color: black;
+}
+
+.hero-right{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-right img{
+    width: 90%;
+    max-width: 500px;
+    object-fit: contain;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* === Homepage Sections Styles === */
+.nearby-rest, .popular-restaurants, .features {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+.nearby-rest, .popular-restaurants {
+    background-color: #fff7ed;
+}
+.features {
+  background-color: #fefefe;
+}
+
+.nearby-rest h2, .popular-restaurants h2, .food-categories h2, .features-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.logo-row{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10rem;
+    align-items: center;
+}
+
+.logo-row img{
+    width: 150px;
+    height: auto;
+    border-radius: 2rem;
+}
+
+.food-categories{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    text-align: center;
+    scroll-margin-top: 120px;
+}
+
+.category-cards, .restaurant-cards, .features-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.category-cards .card, .restaurant-card, .feature-box {
+    background-color: white;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.category-cards .card:hover, .restaurant-card:hover, .feature-box:hover {
+    transform: translateY(-5px);
+}
+
+.category-cards .card {
+    width: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card img{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card h3{
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.category-cards .card p {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.restaurant-card {
+    width: 220px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.restaurant-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.restaurant-card h3 {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.feature-box {
+  padding: 30px 20px;
+  width: 280px;
+  border-radius: 16px;
+}
+
+.feature-box img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.feature-box h3 {
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.feature-box p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* === Cart Page Styles === */
+.cart-page {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.cart-page h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 4rem;
+  background-color: #f9fafb;
+  border-radius: 8px;
+}
+
+.cart-empty p {
+  font-size: 1.2rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.browse-restaurants-btn {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.browse-restaurants-btn:hover {
+  background-color: #dc2626;
+}
+
+.cart-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .cart-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cart-item h4 {
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+}
+
+.cart-item p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.quantity-adjuster {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.quantity-adjuster button {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.quantity-adjuster span {
+  padding: 0.25rem 1rem;
+  font-size: 1rem;
+}
+
+.cart-summary {
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: fit-content;
+}
+
+.cart-summary h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: #4b5563;
+}
+
+.summary-row.total {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #111827;
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* === Floating Cart Button Styles === */
+.floating-cart-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #ef4444;
+  color: white;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.floating-cart-btn:hover {
+  transform: scale(1.1);
+}
+
+.floating-cart-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.floating-cart-badge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  background-color: white;
+  color: #ef4444;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ef4444;
+}
+
+/* Add this to the bottom of src/style.css */
+
+/* This targets the cards in both the FoodCategories and PopularRestaurants sections */
+.card, .restaurant-card {
+  color: inherit; /* This makes the link text use the color of its parent */
+  text-decoration: none; /* This removes the underline */
+}
+/* Add this to the bottom of src/style.css */
+
+/* === Modal Styles === */
+.modal-overlay {
+  position: fixed; /* Sits on top of the page content */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Ensures it's on top of everything */
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  text-align: center;
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  color: #ed290a; /* Using your brand color */
+  margin-bottom: 1.5rem;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #aaa;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.how-it-works-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.how-it-works-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.how-it-works-list li span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #ed290a;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 15px;
+}
